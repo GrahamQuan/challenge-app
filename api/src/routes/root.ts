@@ -3,7 +3,7 @@ import express from 'express';
 const router = express.Router();
 
 router.get('/', (req, res) => {
-  res.json({ creatorInfo: 'I am Graham Quan, a fullstack developer.' });
+  res.send('welcome');
 });
 
 export default router;
