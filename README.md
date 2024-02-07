@@ -28,6 +28,9 @@ pnpm i
 # dev mode
 pnpm run dev
 
+# test
+pnpm run test
+
 # prod mode
 pnpm run build
 pnpm run start
@@ -38,11 +41,15 @@ file sturcture
 ```sh
 api
 ├── src
+│   ├── __test__
+│   │   └── index.test.ts
 │   ├── middlewares
 │   │   ├── log.ts
 │   │   └── notFound.ts
 │   ├── routes
-│   │   └── about.ts
+│   │   ├── about.ts
+│   │   └── root.ts
+│   ├── app.ts
 │   └── index.ts
 ├── .env.local
 ├── package.json
@@ -54,9 +61,14 @@ dependencies using
 ```json
   "devDependencies": {
     "@types/express": "^4.17.21",
+    "@types/jest": "^29.5.12",
     "@types/node": "^20.11.16",
+    "@types/supertest": "^6.0.2",
+    "jest": "^29.7.0",
     "nodemon": "^3.0.3",
     "rimraf": "^5.0.5",
+    "supertest": "^6.3.4",
+    "ts-jest": "^29.1.2",
     "ts-node": "^10.9.2",
     "typescript": "^5.3.3"
   },
@@ -74,6 +86,8 @@ why choose these libraries?
 - ts-node: typescript with node
 - typescript: types
 - dotenv: read env variables
+- jest: test
+- supertest: api test
 
 ## Challenge 3 (front-end)
 
@@ -88,6 +102,9 @@ pnpm i
 # dev mode
 pnpm run dev
 
+# test
+pnpm run test
+
 # prod mode
 pnpm run build
 pnpm run preview
@@ -96,10 +113,12 @@ pnpm run preview
 (vite + react) file sturcture
 
 ```sh
-api
+client
+├── cypress
+│   └── e2e
+│       └── login.cy.ts
 ├── src
 │   ├── components
-│   │   └── Login.tsx
 │   ├── App.tsx
 │   ├── main.tsx
 │   └── index.css
@@ -113,3 +132,4 @@ front-end notes
 - if we validate our email/password when inputing, UX will be better (using debounce)
 - front-end and back-end should be connected, like creating a `/login` api (back-end need to deal with cors and json request)
 - react + typescript + from, this takes some time to deal with the types
+- e2e test with cypress
